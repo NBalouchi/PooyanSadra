@@ -1,0 +1,65 @@
+html {
+  @include fluid-type($min_width, $max_width, $min_font, $max_font);
+}
+
+body {
+  font-family: $font-family !important;
+  font-weight: 400;
+  line-height: $baseline;
+  color: $color-gray;
+  font-size: $mod_1 * $mod_1 * 1rem;
+  @include fluid-type($min_width, $max_width, $mod_1 * $min_font, $mod_2 * $min_font);
+}
+
+a {
+  font-size: $mod_1 * $mod_1 * 1rem;
+  @include fluid-type($min_width, $max_width, $mod_1 * $min_font, $mod_2 * $min_font);
+  color: $color-primary-dark;
+  &:hover {
+    color: $color-primary-dark;
+  }
+}
+
+h1 {
+  font-size: $mod_1 * $mod_1 * $mod_1 * $mod_1 * $mod_1 * 1rem;
+  @include fluid-type(
+    $min_width,
+    $max_width,
+    $mod_1 * $mod_1 * $mod_1 * $mod_1 * $min_font,
+    $mod_2 * $mod_2 * $mod_2 * $mod_2 * $min_font
+  );
+}
+h2 {
+  font-size: $mod_1 * $mod_1 * $mod_1 * $mod_1 * 1rem;
+  @include fluid-type(
+    $min_width,
+    $max_width,
+    $mod_1 * $mod_1 * $mod_1 * $min_font,
+    $mod_2 * $mod_2 * $mod_2 * $min_font
+  );
+}
+h3 {
+  font-size: $mod_1 * $mod_1 * $mod_1 * 1rem;
+  @include fluid-type($min_width, $max_width, $mod_1 * $mod_1 * $min_font, $mod_2 * $mod_2 * $min_font);
+}
+
+h4 {
+  font-size: $mod_1 * $mod_1 * 1rem;
+  @include fluid-type($min_width, $max_width, $mod_1 * $min_font, $mod_2 * $min_font);
+}
+
+h5 {
+  font-size: $mod_1 * 1rem;
+  @include fluid-type($min_width, $max_width, $min_font, $min_font);
+}
+
+.form-control {
+  font-size: $mod_1 * 1rem;
+  @include fluid-type($min_width, $max_width, $mod_1 * $min_font, $mod_2 * $min_font);
+}
+
+.toolbar_navigation-items a {
+  font-family: $font-family;
+  font-size: $mod_1 * $mod_1 * 1rem;
+  @include fluid-type($min_width, $max_width, $mod_1 * $min_font, $mod_2 * $min_font);
+}

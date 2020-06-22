@@ -1,0 +1,130 @@
+//Background
+@mixin background($imgpath, $position: 0 0, $repeat: no-repeat, $size: cover) {
+  background-image: $imgpath;
+  background-position: $position;
+  background-repeat: $repeat;
+  -webkit-background-size: $size;
+  -moz-background-size: $size;
+  -o-background-size: $size;
+  background-size: $size;
+}
+
+//boxShadow
+@mixin box-shadow($top, $left, $blur, $size, $color) {
+  -webkit-box-shadow: $top $left $blur $size $color;
+  -moz-box-shadow: $top $left $blur $size $color;
+  box-shadow: $top $left $blur $size $color;
+}
+
+//Font
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+      font-size: $min-font-size;
+      @media screen and (min-width: $min-vw) {
+        font-size: calc(
+          #{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} *
+            ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})
+        );
+      }
+      @media screen and (min-width: $max-vw) {
+        font-size: $max-font-size;
+      }
+    }
+  }
+}
+
+//Border
+@mixin border-before-bottom($width, $height, $borderWidth, $borderColor, $bottom, $left) {
+  width: $width;
+  height: $height;
+  border-left: $borderWidth solid $borderColor;
+  border-bottom: $borderWidth solid transparent;
+  border-top: $borderWidth solid transparent;
+  content: "";
+  position: absolute;
+  bottom: $bottom;
+  left: $left;
+  margin: auto;
+  -webkit-transform: translateX(-50%) translateY(0%);
+  transform: translateX(-50%) translateY(0%);
+}
+
+@mixin border-before-top($width, $height, $borderWidth, $borderColor, $top, $left) {
+  width: $width;
+  height: $height;
+  border-left: $borderWidth solid $borderColor;
+  border-bottom: $borderWidth solid transparent;
+  border-top: $borderWidth solid transparent;
+  content: "";
+  position: absolute;
+  top: $top;
+  left: $left;
+  margin: auto;
+  -webkit-transform: translateX(-50%) translateY(0%);
+  transform: translateX(-50%) translateY(0%);
+}
+@mixin border-after-bottom($width, $height, $borderWidth, $borderColor, $bottom, $right) {
+  width: $width;
+  height: $height;
+  border-right: $borderWidth solid $borderColor;
+  border-bottom: $borderWidth solid transparent;
+  border-top: $borderWidth solid transparent;
+  content: "";
+  position: absolute;
+  bottom: $bottom;
+  right: $right;
+  margin: auto;
+  -webkit-transform: translateX(-50%) translateY(0%);
+  transform: translateX(-50%) translateY(0%);
+}
+
+@mixin border-after-top($width, $height, $borderWidth, $borderColor, $top, $right) {
+  width: $width;
+  height: $height;
+  border-right: $borderWidth solid $borderColor;
+  border-bottom: $borderWidth solid transparent;
+  border-top: $borderWidth solid transparent;
+  content: "";
+  position: absolute;
+  top: $top;
+  right: $right;
+  margin: auto;
+  -webkit-transform: translateX(-50%) translateY(0%);
+  transform: translateX(-50%) translateY(0%);
+}
+
+@mixin arrow-up($width, $height, $borderWidth, $borderColor, $top, $left) {
+  width: $width;
+  height: $height;
+  border-bottom: $borderWidth solid $borderColor;
+  border-right: $borderWidth solid transparent;
+  border-left: $borderWidth solid transparent;
+  content: "";
+  position: absolute;
+  top: $top;
+  left: $left;
+  margin: auto;
+  -webkit-transform: translateX(-50%) translateY(0%);
+  transform: translateX(-50%) translateY(0%);
+}
+
+@mixin arrow-down($width, $height, $borderWidth, $borderColor, $top, $left) {
+  width: $width;
+  height: $height;
+  border-top: $borderWidth solid $borderColor;
+  border-right: $borderWidth solid transparent;
+  border-left: $borderWidth solid transparent;
+  content: "";
+  position: absolute;
+  top: $top;
+  left: $left;
+  margin: auto;
+  -webkit-transform: translateX(-50%) translateY(0%);
+  transform: translateX(-50%) translateY(0%);
+}
