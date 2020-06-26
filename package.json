@@ -10,7 +10,9 @@
   "license": "ISC",
   "dependencies": {
     "@popperjs/core": "^2.4.2",
-    "bootstrap": "^4.5.0"
+    "bootstrap": "^4.5.0",
+    "font-awesome": "^4.7.0",
+    "linearicons": "^1.0.2"
   },
   "devDependencies": {
     "node-sass": "^4.12.0"

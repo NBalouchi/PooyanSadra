@@ -1,0 +1,57 @@
+.operators-section {
+    background-color: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+    position: relative;
+    padding: 15px;
+    margin: 35px 0;
+    width: 100%;
+    /* flex: 3; */
+    order: 2;
+    flex-basis: 73%;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.countries-detail {
+    display: flex;
+    padding: 0px 0 15px;
+    img {
+        width: 100px;
+    }
+    p {
+        line-height: 2;
+        padding-left: 15px;
+        margin-bottom: 0;
+    }
+}
+
+.sidebar {
+    background-color: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+    position: relative;
+    padding: 15px;
+    margin: 35px 0;
+    flex-basis: 25%;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    P {
+        border-bottom: solid 1px #e6e6e6;
+        font-size: 20px;
+        padding-bottom: 8px;
+        margin-bottom: 5px;
+    }
+    &-content {
+        display: flex;
+        flex-direction: column;
+        a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            line-height: 2;
+            &:hover{
+                text-decoration: none;
+                color: #76c5f0;
+            }
+        }
+    }
+}
