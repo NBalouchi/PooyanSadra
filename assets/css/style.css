@@ -19,7 +19,9 @@ html {
   font-size: 12px; }
   @media screen and (min-width: 320px) {
     html {
-      font-size: calc( 12px + 12 * ((100vw - 320px) / 880)); } }
+      font-size: calc(
+ 12px + 12 *
+ ((100vw - 320px) / 880)); } }
   @media screen and (min-width: 1200px) {
     html {
       font-size: 24px; } }
@@ -33,7 +35,9 @@ body {
     font-size: 14.4px; }
     @media screen and (min-width: 320px) {
       body {
-        font-size: calc( 14.4px + 3.6 * ((100vw - 320px) / 880)); } }
+        font-size: calc(
+ 14.4px + 3.6 *
+ ((100vw - 320px) / 880)); } }
     @media screen and (min-width: 1200px) {
       body {
         font-size: 18px; } }
@@ -45,7 +49,9 @@ a {
     font-size: 14.4px; }
     @media screen and (min-width: 320px) {
       a {
-        font-size: calc( 14.4px + 3.6 * ((100vw - 320px) / 880)); } }
+        font-size: calc(
+ 14.4px + 3.6 *
+ ((100vw - 320px) / 880)); } }
     @media screen and (min-width: 1200px) {
       a {
         font-size: 18px; } }
@@ -58,7 +64,9 @@ h1 {
     font-size: 24.8832px; }
     @media screen and (min-width: 320px) {
       h1 {
-        font-size: calc( 24.8832px + 35.8668 * ((100vw - 320px) / 880)); } }
+        font-size: calc(
+ 24.8832px + 35.8668 *
+ ((100vw - 320px) / 880)); } }
     @media screen and (min-width: 1200px) {
       h1 {
         font-size: 60.75px; } }
@@ -69,7 +77,9 @@ h2 {
     font-size: 20.736px; }
     @media screen and (min-width: 320px) {
       h2 {
-        font-size: calc( 20.736px + 19.764 * ((100vw - 320px) / 880)); } }
+        font-size: calc(
+ 20.736px + 19.764 *
+ ((100vw - 320px) / 880)); } }
     @media screen and (min-width: 1200px) {
       h2 {
         font-size: 40.5px; } }
@@ -80,7 +90,9 @@ h3 {
     font-size: 17.28px; }
     @media screen and (min-width: 320px) {
       h3 {
-        font-size: calc( 17.28px + 9.72 * ((100vw - 320px) / 880)); } }
+        font-size: calc(
+ 17.28px + 9.72 *
+ ((100vw - 320px) / 880)); } }
     @media screen and (min-width: 1200px) {
       h3 {
         font-size: 27px; } }
@@ -91,7 +103,9 @@ h4 {
     font-size: 14.4px; }
     @media screen and (min-width: 320px) {
       h4 {
-        font-size: calc( 14.4px + 3.6 * ((100vw - 320px) / 880)); } }
+        font-size: calc(
+ 14.4px + 3.6 *
+ ((100vw - 320px) / 880)); } }
     @media screen and (min-width: 1200px) {
       h4 {
         font-size: 18px; } }
@@ -102,7 +116,9 @@ h5 {
     font-size: 12px; }
     @media screen and (min-width: 320px) {
       h5 {
-        font-size: calc( 12px + 0 * ((100vw - 320px) / 880)); } }
+        font-size: calc(
+ 12px + 0 *
+ ((100vw - 320px) / 880)); } }
     @media screen and (min-width: 1200px) {
       h5 {
         font-size: 12px; } }
@@ -113,7 +129,9 @@ h5 {
     font-size: 14.4px; }
     @media screen and (min-width: 320px) {
       .form-control {
-        font-size: calc( 14.4px + 3.6 * ((100vw - 320px) / 880)); } }
+        font-size: calc(
+ 14.4px + 3.6 *
+ ((100vw - 320px) / 880)); } }
     @media screen and (min-width: 1200px) {
       .form-control {
         font-size: 18px; } }
@@ -125,7 +143,9 @@ h5 {
     font-size: 14.4px; }
     @media screen and (min-width: 320px) {
       .toolbar_navigation-items a {
-        font-size: calc( 14.4px + 3.6 * ((100vw - 320px) / 880)); } }
+        font-size: calc(
+ 14.4px + 3.6 *
+ ((100vw - 320px) / 880)); } }
     @media screen and (min-width: 1200px) {
       .toolbar_navigation-items a {
         font-size: 18px; } }
@@ -699,36 +719,6 @@ button {
   opacity: 0;
   box-sizing: border-box; }
 
-@-moz-keyframes pulse {
-  0% {
-    -moz-transform: scale(0);
-    opacity: 0; }
-  25% {
-    -moz-transform: scale(0);
-    opacity: 0.1; }
-  50% {
-    -moz-transform: scale(0.1);
-    opacity: 0.3; }
-  75% {
-    -moz-transform: scale(0.5);
-    opacity: 0.5; }
-  100% {
-    -moz-transform: scale(1);
-    opacity: 0; } }
 
-@-webkit-keyframes pulse {
-  0% {
-    -webkit-transform: scale(0);
-    opacity: 0; }
-  25% {
-    -webkit-transform: scale(0);
-    opacity: 0.1; }
-  50% {
-    -webkit-transform: scale(0.1);
-    opacity: 0.3; }
-  75% {
-    -webkit-transform: scale(0.5);
-    opacity: 0.5; }
-  100% {
-    -webkit-transform: scale(1);
-    opacity: 0; } }
+
+    
