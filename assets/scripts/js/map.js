@@ -1,7 +1,3 @@
-// Themes begin
-am4core.useTheme(am4themes_animated);
-// Themes end
-
 // Create map instance
 var chart = am4core.create("chartdiv", am4maps.MapChart);
 
@@ -14,127 +10,47 @@ chart.projection = new am4maps.projections.Miller();
 // Create map polygon series
 var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
 
-// Exclude Antartica
-polygonSeries.exclude = ["AQ"];
-
 // Make map load polygon (like country names) data from GeoJSON
 polygonSeries.useGeodata = true;
+
+// Add some custom data
+polygonSeries.data = [{
+  "id": "US",
+  "color": am4core.color("#3F4B3B"),
+  "description": "The U.S. is a country of 50 states covering a vast swath of North America, with Alaska in the northwest and Hawaii extending the nation’s presence into the Pacific Ocean. Major Atlantic Coast cities are New York, a global finance and culture center, and capital Washington, DC. Midwestern metropolis Chicago is known for influential architecture and on the west coast, Los Angeles' Hollywood is famed for filmmaking."
+}, {
+  "id": "CA",
+  "color": am4core.color("#3F4B3B"),
+  "description": "Canada is a North American country stretching from the U.S. in the south to the Arctic Circle in the north. Major cities include massive Toronto, west coast film centre Vancouver, French-speaking Montréal and Québec City, and capital city Ottawa. Canada's vast swaths of wilderness include lake-filled Banff National Park in the Rocky Mountains. It's also home to Niagara Falls, a famous group of massive waterfalls."
+}, {
+  "id": "MX",
+  "color": am4core.color("#3F4B3B"),
+  "description": "Mexico is a country between the U.S. and Central America that's known for its Pacific and Gulf of Mexico beaches and its diverse landscape of mountains, deserts and jungles. Ancient ruins such as Teotihuacán and the Mayan city of Chichén Itzá are scattered throughout the country, as are Spanish colonial-era towns. In capital Mexico City, upscale shops, renowned museums and gourmet restaurants cater to modern life."
+}]
 
 // Configure series
 var polygonTemplate = polygonSeries.mapPolygons.template;
 polygonTemplate.tooltipText = "{name}";
-polygonTemplate.fill = chart.colors.getIndex(0).lighten(0.5);
-
+polygonTemplate.fill = am4core.color("#5CAB7D");
+polygonTemplate.propertyFields.fill = "color";
+polygonTemplate.events.on("hit", function(ev) {
+  var data = ev.target.dataItem.dataContext;
+  var info = document.getElementById("info");
+  info.innerHTML = "<h3>" + data.name + " (" + data.id  + ")</h3>";
+  if (data.description) {
+    info.innerHTML += data.description;
+  }
+  else {
+    info.innerHTML += "<i>No description provided.</i>"
+  }
+});
 
 // Create hover state and set alternative fill color
 var hs = polygonTemplate.states.create("hover");
-hs.properties.fill = chart.colors.getIndex(0);
+hs.properties.fill = am4core.color("#5A9367");
 
-// Add image series
-var imageSeries = chart.series.push(new am4maps.MapImageSeries());
-imageSeries.mapImages.template.propertyFields.longitude = "longitude";
-imageSeries.mapImages.template.propertyFields.latitude = "latitude";
-imageSeries.data = [{
-    "title": "Nigeria",
-    "latitude": 9.597030,
-    "longitude": 7.862066,
-}, {
-    "title": "Ethiopos",
-    "latitude": 8.630540,
-    "longitude": 39.076345
-}, {
-    "title": "Tanzania",
-    "latitude": -6.354482,
-    "longitude": 35.145085
-}, {
-    "title": "Sudan",
-    "latitude": 16.409927,
-    "longitude": 29.840940
-}, {
-    "title": "UAE",
-    "latitude": 23.886122,
-    "longitude": 54.190179
-}, {
-    "title": "Pakistan",
-    "latitude": 29.993475,
-    "longitude": 69.004253
-}, {
-    "title": "Afghanistan",
-    "latitude": 33.768997,
-    "longitude": 65.867553
-}];
+// Remove Antarctica
+polygonSeries.exclude = ["AQ"];
 
-// add events to recalculate map position when the map is moved or zoomed
-chart.events.on("ready", updateCustomMarkers);
-chart.events.on("mappositionchanged", updateCustomMarkers);
-
-// this function will take current images on the map and create HTML elements for them
-function updateCustomMarkers(event) {
-
-    // go through all of the images
-    imageSeries.mapImages.each(function (image) {
-        // check if it has corresponding HTML element
-        if (!image.dummyData || !image.dummyData.externalElement) {
-            // create onex
-            image.dummyData = {
-                externalElement: createCustomMarker(image)
-            };
-        }
-
-        // reposition the element accoridng to coordinates
-        var xy = chart.geoPointToSVG({ longitude: image.longitude, latitude: image.latitude });
-        image.dummyData.externalElement.style.top = xy.y + 'px';
-        image.dummyData.externalElement.style.left = xy.x + 'px';
-    });
-
-}
-
-// this function creates and returns a new marker element
-function createCustomMarker(image) {
-
-    var chart = image.dataItem.component.chart;
-
-    // create holder
-    var holder = document.createElement('div');
-    holder.className = 'map-marker';
-    holder.title = image.dataItem.dataContext.title;
-    holder.style.position = 'absolute';
-
-    // maybe add a link to it?
-    if (undefined != image.url) {
-        holder.onclick = function () {
-            window.location.href = image.url;
-        };
-        holder.className += ' map-clickable';
-    }
-
-    // create dot
-    var dot = document.createElement('div');
-    dot.className = 'dot';
-    holder.appendChild(dot);
-
-    // create pulse
-    var pulse = document.createElement('div');
-    pulse.className = 'pulse';
-    holder.appendChild(pulse);
-
-    // append the marker to the map container
-    chart.svgContainer.htmlElement.appendChild(holder);
-
-    return holder;
-}
-
-
-chart.logo.disabled = true;
-
-polygonTemplate.events.on("hit", function (ev) {
-    var data = ev.target.dataItem.dataContext;
-    var info = document.getElementById("info");
-    info.innerHTML = "<h3>" + data.name + "</h3>";
-    if (data.description) {
-        info.innerHTML += data.description;
-    }
-    else {
-        info.innerHTML += "<i>No description provided.</i>"
-    }
-});
+// Add zoom control
+chart.zoomControl = new am4maps.ZoomControl();
