@@ -3,7 +3,7 @@
 //   max-width: 1316px !important;
 // }
 body {
-  background-color: #f6f6f6 !important;
+  background-color: #f2f7fb !important;
 }
 main {
   margin-top: 35px;
@@ -19,10 +19,12 @@ main {
   width: 844px;
   background-color: #fff;
   border-radius: 10px;
-  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.04);
+  // box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.04);
   margin: auto;
   margin-top: 44px;
   padding: 25px 0 32px;
+  -webkit-box-shadow: 0 0 5px 0 rgba(43, 43, 43, 0.1), 0 11px 6px -7px rgba(43, 43, 43, 0.1);
+  box-shadow: 0 0 5px 0 rgba(43, 43, 43, 0.1), 0 11px 6px -7px rgba(43, 43, 43, 0.1);
   // text-align: center;
 }
 

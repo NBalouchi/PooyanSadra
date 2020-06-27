@@ -9,6 +9,8 @@
   "author": "nafiseh",
   "license": "ISC",
   "dependencies": {
+    "@amcharts/amcharts4": "^4.9.27",
+    "@amcharts/amcharts4-geodata": "^4.1.15",
     "@popperjs/core": "^2.4.2",
     "bootstrap": "^4.5.0",
     "font-awesome": "^4.7.0",
